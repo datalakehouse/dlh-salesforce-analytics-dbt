@@ -1,0 +1,14 @@
+version: 2
+
+
+
+models:  
+  - name: V_ACCOUNTS_STG
+    description: This is the accounts dimension table
+    columns:
+      - name: K_ACCOUNT_DLHK        
+        tests:
+          - unique
+          - not_null
+        description: DataLakeHouse key of the account
+
