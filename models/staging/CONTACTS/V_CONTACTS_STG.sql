@@ -6,7 +6,7 @@
 }}
 
 WITH source AS (
-  SELECT * FROM  {{source('DEMO_SALESFORCE','CONTACTS')}}
+  SELECT * FROM  {{source('DEMO_SALESFORCE','CONTACT')}}
 ),
 
 rename AS 
