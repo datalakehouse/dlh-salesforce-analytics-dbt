@@ -15,3 +15,6 @@ sources:
       - name: CASE
       - name: ASSET
       - name: CONTRACT
+      - name: USER
+      - name: USERROLE
+      - name: PROFILE
