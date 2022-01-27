@@ -13,6 +13,7 @@ users AS (
 ),
 rename AS 
 (
+  SELECT
     --DLHK
     MD5(S.ID) AS K_ASSET_DLHK
     ,MD5( TRIM(COALESCE(S.ACCOUNTID, '00000000000000000000000000000000'))  ) AS K_ACCOUNT_DLHK
@@ -74,6 +75,6 @@ rename AS
     ,'{{invocation_id}}' AS MD_INTGR_ID
 FROM source S
     LEFT JOIN users U ON U.K_USER_BK = S.OWNERID
-)
+) 
 
 SELECT * FROM rename
