@@ -44,6 +44,12 @@ SELECT
     ,S.LASTCLOSEDATECHANGEDHISTORYID AS K_LAST_CLOSE_DATE_CHANGED_HISTORY_BK
     --ATTRIBUTES
     ,S.CLOSEDATE AS A_CLOSE_DATE
+    ,CASE
+        when S.ISWON then 'Won'
+        when not S.ISWON and S.ISCLOSED then 'Lost'
+        when not S.ISCLOSED and lower(S.FORECASTCATEGORY) in ('pipeline','forecast','bestcase') then 'Pipeline'
+        else 'Other'
+      end as A_OPPORTUNITY_STATUS
     ,S.CREATEDDATE AS A_CREATED_DATE
     ,S.DESCRIPTION AS A_DESCRIPTION
     ,S.FISCAL AS A_FISCAL
