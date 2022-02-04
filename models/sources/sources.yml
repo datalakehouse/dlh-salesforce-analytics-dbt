@@ -2,8 +2,8 @@ version: 2
 
 sources:      
   - name: DEMO_SALESFORCE
-    database: DEVELOPER_SANDBOX
-    schema: DEMO_SALESFORCE
+    database: NISARG_DATABASE
+    schema: NSLF_NISARG_SALESFORCE
     quoting:
       identifier: true
     tables:
