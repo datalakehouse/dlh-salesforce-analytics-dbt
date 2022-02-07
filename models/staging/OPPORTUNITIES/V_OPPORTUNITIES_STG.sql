@@ -50,6 +50,7 @@ SELECT
         when not S.ISCLOSED and lower(S.FORECASTCATEGORY) in ('pipeline','forecast','bestcase') then 'Pipeline'
         else 'Other'
       end as A_OPPORTUNITY_STATUS
+      --QUOTES (HISTORY?) 
     ,S.CREATEDDATE AS A_CREATED_DATE
     ,S.DESCRIPTION AS A_DESCRIPTION
     ,S.FISCAL AS A_FISCAL
