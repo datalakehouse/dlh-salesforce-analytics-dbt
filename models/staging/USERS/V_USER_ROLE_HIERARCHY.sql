@@ -19,6 +19,7 @@ with recursive userroles
           from {{source('DEMO_SALESFORCE','USERROLE')}} UR
         where ur.parentroleid is null
         
+        
         union all
         
         -- Recursive Clause
@@ -26,6 +27,7 @@ with recursive userroles
             ur.id, ur.parentroleid, ur.name
           from {{source('DEMO_SALESFORCE','USERROLE')}} UR join userroles URP
             on UR.parentroleid = URP.id
+        
       )
 
   -- This is the "main select".

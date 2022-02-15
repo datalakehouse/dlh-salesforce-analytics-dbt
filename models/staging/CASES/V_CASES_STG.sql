@@ -87,6 +87,8 @@ FROM source S
     LEFT JOIN account A ON A.K_ACCOUNT_BK = S.ACCOUNTID
     LEFT JOIN contact CO ON CO.K_CONTACT_BK = S.CONTACTID
     LEFT JOIN parent_cases P ON P.K_CASE_BK = S.ID
+WHERE
+    NOT(S.ISDELETED)
 ) 
 
 SELECT * FROM rename

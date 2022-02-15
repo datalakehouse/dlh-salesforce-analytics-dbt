@@ -18,6 +18,7 @@ with recursive campaigns
             C.id, C.PARENTID, C.NAME
           from {{source('DEMO_SALESFORCE','CAMPAIGN')}} C
         where C.parentid is null
+        AND NOT(C.ISDELETED)
         
         union all
         
@@ -26,6 +27,8 @@ with recursive campaigns
             C.id, C.PARENTID, C.NAME
           from {{source('DEMO_SALESFORCE','CAMPAIGN')}} C join campaigns CA
             on C.PARENTID = CA.ID
+          WHERE
+           NOT(C.ISDELETED)
       )
 
   -- This is the "main select".

@@ -103,6 +103,8 @@ rename AS
 FROM source S
   LEFT JOIN users U on U.K_USER_BK = S.OWNERID
   LEFT JOIN parent_accounts P ON P.K_ACCOUNT_BK = S.ID
+WHERE
+    NOT(S.ISDELETED)
 )
 
 SELECT * FROM rename

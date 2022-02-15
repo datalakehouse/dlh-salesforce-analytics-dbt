@@ -18,6 +18,7 @@ with recursive accounts
             A.id, A.PARENTID, A.NAME
           from {{source('DEMO_SALESFORCE','ACCOUNT')}} A
         where A.parentid is null
+        AND NOT(A.ISDELETED)
         
         union all
         
@@ -26,6 +27,7 @@ with recursive accounts
             A.id, A.PARENTID, A.NAME
           from {{source('DEMO_SALESFORCE','ACCOUNT')}} A join accounts AP
             on A.PARENTID = AP.ID
+        WHERE NOT(A.ISDELETED)
       )
 
   -- This is the "main select".

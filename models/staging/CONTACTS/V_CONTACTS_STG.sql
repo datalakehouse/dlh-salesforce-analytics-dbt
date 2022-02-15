@@ -89,6 +89,8 @@ SELECT
     ,'{{invocation_id}}' AS MD_INTGR_ID
 FROM source S
     LEFT JOIN users U ON U.K_USER_BK = S.OWNERID
+WHERE
+  NOT(S.ISDELETED)
 )
 
 SELECT * FROM rename

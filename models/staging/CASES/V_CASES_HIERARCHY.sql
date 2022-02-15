@@ -18,6 +18,7 @@ with recursive cases
             A.id, A.PARENTID, A.CASENUMBER
           from {{source('DEMO_SALESFORCE','CASE')}} A
         where A.parentid is null
+        AND  NOT(A.ISDELETED)
         
         union all
         
@@ -26,6 +27,8 @@ with recursive cases
             A.id, A.PARENTID, A.CASENUMBER
           from {{source('DEMO_SALESFORCE','CASE')}} A join cases C
             on A.PARENTID = C.ID
+            WHERE
+            NOT(A.ISDELETED)
       )
 
   -- This is the "main select".
