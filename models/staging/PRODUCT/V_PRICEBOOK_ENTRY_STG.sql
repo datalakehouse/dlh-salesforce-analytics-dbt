@@ -1,12 +1,12 @@
 {{ config (
   materialized= 'view',
-  schema= 'SALESFORCE',
+  schema= var('target_schema'),
   tags= ["staging","daily"]
 )
 }}
 
 WITH source AS (
-  SELECT * FROM  {{source('DEMO_SALESFORCE','PRICEBOOKENTRY')}}
+  SELECT * FROM  {{source(var('source_schema'),'PRICEBOOKENTRY')}}
 ),
 user AS (
   SELECT * FROM  {{ref('W_USERS_D')}}
@@ -15,7 +15,7 @@ product AS (
   SELECT * FROM  {{ref('V_PRODUCTS_STG')}}
 ),
 pricebook AS (
-  SELECT * FROM {{source('DEMO_SALESFORCE','PRICEBOOK2')}}
+  SELECT * FROM {{source(var('source_schema'),'PRICEBOOK2')}}
 ),
 rename AS 
 (

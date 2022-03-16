@@ -1,12 +1,12 @@
 {{ config (
   materialized= 'view',
-  schema= 'SALESFORCE',
+  schema= var('target_schema'),
   tags= ["staging", "daily"]
 )
 }}
 
 WITH source AS (
-  SELECT * FROM  {{source('DEMO_SALESFORCE','OPPORTUNITY')}}
+  SELECT * FROM  {{source(var('source_schema'),'OPPORTUNITY')}}
 ),
 campaign AS (
   SELECT * FROM  {{ref('W_CAMPAIGNS_F')}}
@@ -50,7 +50,6 @@ SELECT
         when not S.ISCLOSED and lower(S.FORECASTCATEGORY) in ('pipeline','forecast','bestcase') then 'Pipeline'
         else 'Other'
       end as A_OPPORTUNITY_STATUS
-      --QUOTES (HISTORY?) 
     ,S.CREATEDDATE AS A_CREATED_DATE
     ,S.DESCRIPTION AS A_DESCRIPTION
     ,S.FISCAL AS A_FISCAL
@@ -64,11 +63,6 @@ SELECT
     ,S.LEADSOURCE AS A_LEAD_SOURCE
     ,S.NAME AS A_NAME
     ,S.NEXTSTEP AS A_NEXT_STEP
-    --,S.NYN__CURRENTGENERATORS__C AS A_NYN__CURRENTGENERATORS__C
-    --,S.NYN__DELIVERYINSTALLATIONSTATUS__C AS A_NYN__DELIVERYINSTALLATIONSTATUS__C
-    --,S.NYN__MAINCOMPETITORS__C AS A_NYN__MAINCOMPETITORS__C
-    --,S.NYN__ORDERNUMBER__C AS A_NYN__ORDERNUMBER__C
-    --,S.NYN__TRACKINGNUMBER__C AS A_NYN__TRACKINGNUMBER__C
     ,S.STAGENAME AS A_STAGE_NAME
     ,S.SYSTEMMODSTAMP AS A_SYSTEM_MOD_STAMP
     ,S.FISCALQUARTER AS A_FISCALQUARTER

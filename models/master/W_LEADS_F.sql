@@ -1,7 +1,7 @@
 {{ config (
   materialized= 'table',
-  schema= 'SALESFORCE',
-  tags= ["staging", "daily"],
+  schema= var('target_schema'),
+  tags= ["master", "daily"],
   transient=false
 )
 }}

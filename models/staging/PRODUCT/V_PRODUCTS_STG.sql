@@ -1,12 +1,12 @@
 {{ config (
   materialized= 'view',
-  schema= 'SALESFORCE',
+  schema= var('target_schema'),
   tags= ["staging","daily"]
 )
 }}
 
 WITH source AS (
-  SELECT * FROM  {{source('DEMO_SALESFORCE','PRODUCT2')}}
+  SELECT * FROM  {{source(var('source_schema'),'PRODUCT2')}}
 ),
 user AS (
   SELECT * FROM  {{ref('W_USERS_D')}}

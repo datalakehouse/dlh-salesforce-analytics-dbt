@@ -1,9 +1,9 @@
 version: 2
 
 sources:      
-  - name: DEMO_SALESFORCE
-    database: NISARG_DATABASE
-    schema: NSLF_NISARG_SALESFORCE
+  - name: "{{ var('source_schema')}}"
+    database: "{{ var('source_database')}}"
+    schema: "{{ var('source_schema')}}"
     quoting:
       identifier: true
     tables:
@@ -18,8 +18,6 @@ sources:
       - name: USER
       - name: USERROLE
       - name: PROFILE
-      #- name: QUOTE #TO BE PULLED
-      #- name: ACTIVITY #TO BE PULLED
       - name: PRODUCT2
       - name: PRICEBOOK2
       - name: PRICEBOOKENTRY

@@ -1,12 +1,12 @@
 {{ config (
   materialized= 'view',
-  schema= 'SALESFORCE',
+  schema= var('target_schema'),
   tags= ["staging", "daily"]
 )
 }}
 
 WITH source AS (
-  SELECT * FROM  {{source('DEMO_SALESFORCE','CASE')}}
+  SELECT * FROM  {{source(var('source_schema'),'CASE')}}
 ),
 asset AS (
   SELECT * FROM  {{ref('W_ASSETS_D')}}
@@ -58,10 +58,6 @@ SELECT
     ,S.LASTMODIFIEDDATE AS A_LAST_MODIFIED_DATE
     ,S.LASTREFERENCEDDATE AS A_LAST_REFERENCED_DATE
     ,S.LASTVIEWEDDATE AS A_LAST_VIEWED_DATE
-    --,S.NYN__ENGINEERINGREQNUMBER__C AS A_NYN__ENGINEERING_REQ_NUMBER
-    --,S.NYN__POTENTIALLIABILITY__C AS A_NYN__POTENTIALLIABILITY
-    --,S.NYN__PRODUCT__C AS A_NYN__PRODUCT
-    --,S.NYN__SLAVIOLATION__C AS A_NYN__SLA_VIOLATION
     ,S.ORIGIN AS A_ORIGIN
     ,S.PRIORITY AS A_PRIORITY
     ,S.REASON AS A_REASON

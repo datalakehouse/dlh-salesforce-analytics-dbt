@@ -1,12 +1,12 @@
 {{ config (
   materialized= 'view',
-  schema= 'SALESFORCE',
+  schema= var('target_schema'),
   tags= ["staging", "daily"]
 )
 }}
 
 WITH source AS (
-  SELECT * FROM  {{source('DEMO_SALESFORCE','CAMPAIGN')}}
+  SELECT * FROM  {{source(var('source_schema'),'CAMPAIGN')}}
 ),
 user AS (
   SELECT * FROM  {{ref('W_USERS_D')}}
@@ -28,8 +28,7 @@ SELECT
   ,S.CREATEDBYID AS K_CREATED_BY_USER_BK
   ,S.LASTMODIFIEDBYID AS K_MODIFIED_BY_USER_BK
   ,S.OWNERID AS K_OWNER_USER_BK
-
-  ,S.PARENTID AS K_PARENTID
+  ,S.PARENTID AS K_PARENT_BK
   --ATTRIBUTES
   ,P.A_CAMPAIGN_FULL_NAME AS A_CAMPAIGN_FULL_NAME
   ,S.CREATEDDATE AS A_CREATED_DATE

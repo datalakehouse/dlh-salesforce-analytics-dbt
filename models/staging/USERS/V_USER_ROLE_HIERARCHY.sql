@@ -1,6 +1,6 @@
 {{ config (
   materialized= 'view',
-  schema= 'SALESFORCE',
+  schema= var('target_schema'),
   tags= ["staging","daily"]
 )
 }}
@@ -16,7 +16,7 @@ with recursive userroles
          -- Recursive Clause
         select '' as INDENT,
             ur.id, ur.parentroleid, ur.name
-          from {{source('DEMO_SALESFORCE','USERROLE')}} UR
+          from {{source(var('source_schema'),'USERROLE')}} UR
         where ur.parentroleid is null
         
         
@@ -25,7 +25,7 @@ with recursive userroles
         -- Recursive Clause
         select INDENT || '- ',
             ur.id, ur.parentroleid, ur.name
-          from {{source('DEMO_SALESFORCE','USERROLE')}} UR join userroles URP
+          from {{source(var('source_schema'),'USERROLE')}} UR join userroles URP
             on UR.parentroleid = URP.id
         
       )
