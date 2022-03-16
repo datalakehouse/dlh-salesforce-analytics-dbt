@@ -1,6 +1,6 @@
 {{ config (
   materialized= 'view',
-  schema= 'SALESFORCE',
+  schema= var('target_schema'),
   tags= ["staging", "daily"]
 )
 }}
@@ -16,7 +16,7 @@ with recursive cases
          -- Recursive Clause
         select '' as INDENT,
             A.id, A.PARENTID, A.CASENUMBER
-          from {{source('DEMO_SALESFORCE','CASE')}} A
+          from {{source(var('source_schema'),'CASE')}} A
         where A.parentid is null
         AND  NOT(A.ISDELETED)
         
@@ -25,7 +25,7 @@ with recursive cases
         -- Recursive Clause
         select INDENT || '- ',
             A.id, A.PARENTID, A.CASENUMBER
-          from {{source('DEMO_SALESFORCE','CASE')}} A join cases C
+          from {{source(var('source_schema'),'CASE')}} A join cases C
             on A.PARENTID = C.ID
             WHERE
             NOT(A.ISDELETED)

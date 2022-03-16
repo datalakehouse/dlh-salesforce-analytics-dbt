@@ -1,12 +1,12 @@
 {{ config (
   materialized= 'view',
-  schema= 'SALESFORCE',
+  schema= var('target_schema'),
   tags= ["staging", "daily"]
 )
 }}
 
 WITH source AS (
-  SELECT * FROM  {{source('DEMO_SALESFORCE','CONTACT')}}
+  SELECT * FROM  {{source(var('source_schema'),'CONTACT')}}
 ),
 users AS (
   SELECT * FROM  {{ref('V_USERS_STG')}}
@@ -75,8 +75,6 @@ SELECT
     ,S.MOBILEPHONE AS A_MOBILE_PHONE
     ,S.OTHERPHONE AS A_OTHER_PHONE
     ,S.NAME AS A_NAME
-    --,S.NYN__LANGUAGES__C AS A_NYN__LANGUAGES__C
-    --,S.NYN__LEVEL__C AS A_NYN__LEVEL__C    
     ,S.PHONE AS A_PHONE
     ,S.PHOTOURL AS A_PHOTOURL
     ,S.SALUTATION AS A_SALUTATION
