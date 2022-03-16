@@ -1,7 +1,7 @@
 {{ config (
   materialized= 'table',
   schema= var('target_schema'),
-  tags= ["staging", "daily"],
+  tags= ["master", "daily"],
   transient=false
 )
 }}
