@@ -1,11 +1,7 @@
----
-name: Pull Request Template
-about: Create a Pull Request for this package
-title: ''
-labels: ''
-assignees: ''
+## Description & motivation
 
----
+Describe your changes, and why you're making them.
+
 
 ## Checklist
 - [ ] I have verified that these changes work locally
