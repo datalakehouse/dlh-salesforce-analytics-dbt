@@ -50,10 +50,9 @@ By default, this package uses `DEVELOPER_SANDBOX` as the source database name an
 ...
 
 vars:    
-    dlh_salesforce:
-        source_database: DEVELOPER_SANDBOX
-        source_schema: DEMO_SALESFORCE
-        target_schema: SALESFORCE
+    source_database: DEVELOPER_SANDBOX
+    source_schema: DEMO_SALESFORCE
+    target_schema: SALESFORCE
 ```
 
 ### Database support
