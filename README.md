@@ -8,7 +8,7 @@ This dbt package:
 
 ### Models
 
-The primary ouputs of this package are fact and dimension tables as listed below. There are several intermediate models used to create these two models.
+The primary ouputs of this package are fact and dimension tables as listed below. There are several intermediate models used to create these models.
 
 |        Model       |        Description       |
 |:----------------:|:----------------:|
