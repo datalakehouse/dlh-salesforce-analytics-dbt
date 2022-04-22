@@ -18,8 +18,6 @@ data-paths: ["data"]
 macro-paths: ["macros"]
 snapshot-paths: ["snapshots"]
 
-require-dbt-version: [">=0.21.0", "<2.0.0"]
-
 vars:    
     dlh_salesforce:
         source_database: DEVELOPER_SANDBOX
