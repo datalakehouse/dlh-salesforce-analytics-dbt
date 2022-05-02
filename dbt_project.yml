@@ -7,6 +7,7 @@ config-version: 2
 
 profile: 'snowflake_aicg'
 
+require-dbt-version: ">=0.21.0"
 
 source-paths: ["models"]
 analysis-paths: ["analysis"]
@@ -16,8 +17,6 @@ clean-targets: ["target", "dbt_packages"]
 data-paths: ["data"]
 macro-paths: ["macros"]
 snapshot-paths: ["snapshots"]
-
-require-dbt-version: [">=0.21.0", "<2.0.0"]
 
 vars:    
     source_database: DEVELOPER_SANDBOX
