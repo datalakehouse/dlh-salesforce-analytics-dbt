@@ -9,19 +9,19 @@ WITH source AS (
   SELECT * FROM  {{source(var('source_schema'),'CASE')}}
 ),
 asset AS (
-  SELECT * FROM  {{ref('W_ASSETS_D')}}
+  SELECT * FROM  {{ref('W_SFC_ASSETS_D')}}
 ),
 account AS (
-  SELECT * FROM  {{ref('W_ACCOUNTS_D')}}
+  SELECT * FROM  {{ref('W_SFC_ACCOUNTS_D')}}
 ),
 contact AS (
-  SELECT * FROM  {{ref('W_CONTACTS_D')}}
+  SELECT * FROM  {{ref('W_SFC_CONTACTS_D')}}
 ),
 user AS (
-  SELECT * FROM  {{ref('W_USERS_D')}}
+  SELECT * FROM  {{ref('W_SFC_USERS_D')}}
 ),
 parent_cases AS (
-  SELECT * FROM  {{ref('V_CASES_HIERARCHY')}}
+  SELECT * FROM  {{ref('V_SFC_CASES_HIERARCHY')}}
 ),
 rename AS 
 (

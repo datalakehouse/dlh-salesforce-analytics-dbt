@@ -9,4 +9,4 @@
 SELECT
   *
 FROM
-  {{ref('V_CAMPAIGNS_STG')}} AS C
+  {{ref('V_SFC_LEADS_STG')}} AS C

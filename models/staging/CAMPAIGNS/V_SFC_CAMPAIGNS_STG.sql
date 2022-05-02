@@ -9,10 +9,10 @@ WITH source AS (
   SELECT * FROM  {{source(var('source_schema'),'CAMPAIGN')}}
 ),
 user AS (
-  SELECT * FROM  {{ref('W_USERS_D')}}
+  SELECT * FROM  {{ref('W_SFC_USERS_D')}}
 ),
 parent_campaign AS (
-  SELECT * FROM  {{ref('V_CAMPAIGNS_HIERARCHY')}}
+  SELECT * FROM  {{ref('V_SFC_CAMPAIGNS_HIERARCHY')}}
 ),
 rename AS 
 (

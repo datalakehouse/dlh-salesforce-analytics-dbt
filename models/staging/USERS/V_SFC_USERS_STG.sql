@@ -9,7 +9,7 @@ WITH source AS (
   SELECT * FROM  {{source(var('source_schema'),'USER')}}
 ),
 user_role_hierarchy AS (
-  SELECT * FROM  {{ref('V_USER_ROLE_HIERARCHY')}}
+  SELECT * FROM  {{ref('V_SFC_USER_ROLE_HIERARCHY')}}
 ),
 user_profile AS (
   SELECT * FROM  {{source(var('source_schema'),'PROFILE')}}

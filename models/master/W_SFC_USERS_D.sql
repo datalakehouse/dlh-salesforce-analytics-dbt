@@ -9,4 +9,4 @@
 SELECT
   *
 FROM
-  {{ref('V_ASSETS_STG')}} AS C
+  {{ref('V_SFC_USERS_STG')}} AS C

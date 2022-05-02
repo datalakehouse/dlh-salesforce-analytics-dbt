@@ -9,16 +9,16 @@ WITH source AS (
   SELECT * FROM  {{source(var('source_schema'),'LEAD')}}
 ),
 campaign AS (
-  SELECT * FROM  {{ref('W_CAMPAIGNS_F')}}
+  SELECT * FROM  {{ref('W_SFC_CAMPAIGNS_F')}}
 ),
 account AS (
-  SELECT * FROM  {{ref('W_ACCOUNTS_D')}}
+  SELECT * FROM  {{ref('W_SFC_ACCOUNTS_D')}}
 ),
 contact AS (
-  SELECT * FROM  {{ref('W_CONTACTS_D')}}
+  SELECT * FROM  {{ref('W_SFC_CONTACTS_D')}}
 ),
 user AS (
-  SELECT * FROM  {{ref('W_USERS_D')}}
+  SELECT * FROM  {{ref('W_SFC_USERS_D')}}
 ),
 rename AS 
 (

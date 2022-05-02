@@ -9,7 +9,7 @@ WITH source AS (
   SELECT * FROM  {{source(var('source_schema'),'PRODUCT2')}}
 ),
 user AS (
-  SELECT * FROM  {{ref('W_USERS_D')}}
+  SELECT * FROM  {{ref('W_SFC_USERS_D')}}
 ),
 rename AS 
 (

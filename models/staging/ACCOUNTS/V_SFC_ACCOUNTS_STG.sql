@@ -9,10 +9,10 @@ WITH source AS (
   SELECT * FROM  {{source(var('source_schema'),'ACCOUNT')}}
 ),
 users AS (
-  SELECT * FROM  {{ref('V_USERS_STG')}}
+  SELECT * FROM  {{ref('V_SFC_USERS_STG')}}
 ),
 parent_accounts AS (
-  SELECT * FROM  {{ref('V_ACCOUNTS_HIERARCHY')}}
+  SELECT * FROM  {{ref('V_SFC_ACCOUNTS_HIERARCHY')}}
 ),
 
 rename AS 

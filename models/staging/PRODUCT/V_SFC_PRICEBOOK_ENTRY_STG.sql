@@ -9,10 +9,10 @@ WITH source AS (
   SELECT * FROM  {{source(var('source_schema'),'PRICEBOOKENTRY')}}
 ),
 user AS (
-  SELECT * FROM  {{ref('W_USERS_D')}}
+  SELECT * FROM  {{ref('W_SFC_USERS_D')}}
 ),
 product AS (
-  SELECT * FROM  {{ref('V_PRODUCTS_STG')}}
+  SELECT * FROM  {{ref('V_SFC_PRODUCTS_STG')}}
 ),
 pricebook AS (
   SELECT * FROM {{source(var('source_schema'),'PRICEBOOK2')}}

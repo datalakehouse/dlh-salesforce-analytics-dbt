@@ -9,4 +9,4 @@
 SELECT
   *
 FROM
-  {{ref('V_OPPORTUNITIES_STG')}} AS C
+  {{ref('V_SFC_CASES_STG')}} AS C

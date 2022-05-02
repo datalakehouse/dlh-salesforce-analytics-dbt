@@ -9,4 +9,4 @@
 SELECT
   *
 FROM
-  {{ref('V_PRICEBOOK_ENTRY_STG')}} AS C
+  {{ref('V_SFC_ACCOUNTS_STG')}} AS C

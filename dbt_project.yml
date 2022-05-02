@@ -2,7 +2,7 @@
 #settings specifically for this models directory
 #config other dbt settings within ~/.dbt/profiles.yml
 name: 'dlh_salesforce'
-version: '0.1.0'
+version: '0.1.1'
 config-version: 2
 
 profile: 'snowflake_aicg'
@@ -20,10 +20,9 @@ snapshot-paths: ["snapshots"]
 require-dbt-version: [">=0.21.0", "<2.0.0"]
 
 vars:    
-    dlh_salesforce:
-        source_database: DEVELOPER_SANDBOX
-        source_schema: DEMO_SALESFORCE
-        target_schema: SALESFORCE
-
+    source_database: DEVELOPER_SANDBOX
+    source_schema: DEMO_SALESFORCE
+    target_schema: SALESFORCE
+    
 models:
   dlh_salesforce:
