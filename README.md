@@ -35,7 +35,7 @@ Include in your packages.yml
 
 ```yaml
 packages:
-  - package: datalakehouse/dlh-salesforce
+  - package: datalakehouse/dlh_salesforce
     version: [">=0.1.0"]
 ```
 
