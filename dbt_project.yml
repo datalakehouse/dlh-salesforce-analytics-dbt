@@ -2,7 +2,7 @@
 #settings specifically for this models directory
 #config other dbt settings within ~/.dbt/profiles.yml
 name: 'dlh_salesforce'
-version: '0.1.1'
+version: '0.1.4'
 config-version: 2
 
 profile: 'snowflake_aicg'
