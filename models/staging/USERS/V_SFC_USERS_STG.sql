@@ -1,18 +1,18 @@
 {{ config (
   materialized= 'view',
-  schema= var('target_schema'),
+  schema= var('target_schema', 'SALESFORCE'),
   tags= ["staging","daily"]
 )
 }}
 
 WITH source AS (
-  SELECT * FROM  {{source(var('source_schema'),'USER')}}
+  SELECT * FROM  {{source(var('source_schema', 'DEMO_SALESFORCE'),'USER')}}
 ),
 user_role_hierarchy AS (
   SELECT * FROM  {{ref('V_SFC_USER_ROLE_HIERARCHY')}}
 ),
 user_profile AS (
-  SELECT * FROM  {{source(var('source_schema'),'PROFILE')}}
+  SELECT * FROM  {{source(var('source_schema', 'DEMO_SALESFORCE'),'PROFILE')}}
 ),
 rename AS 
 (

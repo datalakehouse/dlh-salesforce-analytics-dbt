@@ -1,6 +1,6 @@
 {{ config (
   materialized= 'table',
-  schema= var('target_schema'),
+  schema= var('target_schema', 'SALESFORCE'),
   tags= ["master", "daily"],
   transient=false
 )

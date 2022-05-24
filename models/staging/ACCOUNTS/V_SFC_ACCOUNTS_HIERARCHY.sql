@@ -1,6 +1,6 @@
 {{ config (
   materialized= 'view',
-  schema= var('target_schema'),
+  schema= var('target_schema', 'SALESFORCE'),
   tags= ["staging", "daily"]
 )
 }}
@@ -16,7 +16,7 @@ with recursive accounts
          -- Recursive Clause
         select '' as INDENT,
             A.id, A.PARENTID, A.NAME
-          from {{source(var('source_schema'),'ACCOUNT')}} A
+          from {{source(var('source_schema', 'DEMO_SALESFORCE'),'ACCOUNT')}} A
         where A.parentid is null
         AND NOT(A.ISDELETED)
         
@@ -25,7 +25,7 @@ with recursive accounts
         -- Recursive Clause
         select INDENT || '- ',
             A.id, A.PARENTID, A.NAME
-          from {{source(var('source_schema'),'ACCOUNT')}} A join accounts AP
+          from {{source(var('source_schema', 'DEMO_SALESFORCE'),'ACCOUNT')}} A join accounts AP
             on A.PARENTID = AP.ID
         WHERE NOT(A.ISDELETED)
       )

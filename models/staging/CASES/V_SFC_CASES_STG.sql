@@ -1,12 +1,12 @@
 {{ config (
   materialized= 'view',
-  schema= var('target_schema'),
+  schema= var('target_schema', 'SALESFORCE'),
   tags= ["staging", "daily"]
 )
 }}
 
 WITH source AS (
-  SELECT * FROM  {{source(var('source_schema'),'CASE')}}
+  SELECT * FROM  {{source(var('source_schema', 'DEMO_SALESFORCE'),'CASE')}}
 ),
 asset AS (
   SELECT * FROM  {{ref('W_SFC_ASSETS_D')}}

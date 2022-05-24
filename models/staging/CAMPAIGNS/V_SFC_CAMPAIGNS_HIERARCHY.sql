@@ -1,6 +1,6 @@
 {{ config (
   materialized= 'view',
-  schema= var('target_schema'),
+  schema= var('target_schema', 'SALESFORCE'),
   tags= ["staging", "daily"]
 )
 }}
@@ -16,7 +16,7 @@ with recursive campaigns
          -- Recursive Clause
         select '' as INDENT,
             C.id, C.PARENTID, C.NAME
-          from {{source(var('source_schema'),'CAMPAIGN')}} C
+          from {{source(var('source_schema', 'DEMO_SALESFORCE'),'CAMPAIGN')}} C
         where C.parentid is null
         AND NOT(C.ISDELETED)
         
@@ -25,7 +25,7 @@ with recursive campaigns
         -- Recursive Clause
         select INDENT || '- ',
             C.id, C.PARENTID, C.NAME
-          from {{source(var('source_schema'),'CAMPAIGN')}} C join campaigns CA
+          from {{source(var('source_schema', 'DEMO_SALESFORCE'),'CAMPAIGN')}} C join campaigns CA
             on C.PARENTID = CA.ID
           WHERE
            NOT(C.ISDELETED)

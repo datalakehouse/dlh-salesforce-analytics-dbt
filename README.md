@@ -42,7 +42,7 @@ packages:
 Configuration
 -------------
 
-By default, this package uses `DEVELOPER_SANDBOX` as the source database name and `DEMO_SALESFORCE` as schema name. If this is not the where your salesforce data is, change ther below [variables](https://docs.getdbt.com/docs/using-variables) configuration on your `dbt_project.yml`:
+By default, this package uses `DEVELOPER_SANDBOX` as the source database name and `DEMO_SALESFORCE` as schema name. If this is not the where your salesforce data is, add the below [variables](https://docs.getdbt.com/docs/using-variables) to your `dbt_project.yml`:
 
 ```yaml
 # dbt_project.yml

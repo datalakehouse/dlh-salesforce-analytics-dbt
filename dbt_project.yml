@@ -18,10 +18,10 @@ data-paths: ["data"]
 macro-paths: ["macros"]
 snapshot-paths: ["snapshots"]
 
-vars:    
-    source_database: DEVELOPER_SANDBOX
-    source_schema: DEMO_SALESFORCE
-    target_schema: SALESFORCE
+# vars:    
+#     source_database: DEVELOPER_SANDBOX
+#     source_schema: DEMO_SALESFORCE
+#     target_schema: SALESFORCE
     
 models:
   dlh_salesforce:
