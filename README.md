@@ -2,8 +2,8 @@
 
 This dbt package:
 
-*   Contains a DBT dimensional model based on salesforce cloud data from [DataLakeHouse.io](https://www.datalakehouse.io/)  connector.
-*   The main use of this package is to provide a stable snowflake dimensional model that will provide useful insights for your sales team.
+*   Contains a DBT dimensional model based on Salesforce cloud data from [DataLakeHouse.io](https://www.datalakehouse.io/)  connector.
+*   The main use of this package is to provide a stable Snowflake dimensional model that will provide useful insights for your sales team.
     
 
 ### Models
@@ -68,4 +68,4 @@ Additional contributions to this package are very welcome! Please create issues 
 
 
 *   Fork and :star: this repository :)
-*   Check it out and :star: [the datalakehouse core repository](https://github.com/datalakehouse/datalakehouse-core);
+*   Check it out and :star: [the DataLakeHouse.io core repository](https://github.com/datalakehouse/datalakehouse-core);
